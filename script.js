@@ -1,108 +1,117 @@
-const questions = [
-    {
-        question: "ما هو التركيب الذي يحمي جذور النبات؟",
-        options: ["الطبقة الجلدية", "الجذر", "البشرة", "القصيبات"],
-        answer: 0
-    },
-    {
-        question: "ما هو الجزء المسؤول عن نقل الغذاء في النبات؟",
-        options: ["الخشب", "اللحاء", "القصيبات", "الجذر"],
-        answer: 1
-    },
-    {
-        question: "ما هي وظيفة الورقة في النبات؟",
-        options: ["التنفس", "التمثيل الضوئي", "امتصاص الماء", "حماية الجذر"],
-        answer: 1
-    },
-    {
-        question: "ما هو الجزء الذي ينتج البذور في النبات؟",
-        options: ["الورقة", "الجذر", "الزهرة", "الساق"],
-        answer: 2
-    },
-    {
-        question: "ما هو الجزء الذي يستخدم للنقل في النبات؟",
-        options: ["الخشب", "اللحاء", "الجذر", "القصيبات"],
-        answer: 0
-    },
-    {
-        question: "ما هو الجزء الذي يحتوي على الكلوروفيل؟",
-        options: ["الجذر", "الورقة", "الساق", "الزهرة"],
-        answer: 1
-    },
-    {
-        question: "ما هي وظيفة الجذر في النبات؟",
-        options: ["امتصاص الماء والمعادن", "إنتاج الغذاء", "التنفس", "حماية الساق"],
-        answer: 0
-    },
-    {
-        question: "ما هي العملية التي تستخدم الضوء لإنتاج الغذاء؟",
-        options: ["التنفس", "التمثيل الضوئي", "الانقسام الخلوي", "الإخصاب"],
-        answer: 1
-    },
-    {
-        question: "ما هو الجزء الذي يحتوي على الأوراق والسيقان؟",
-        options: ["الجذر", "البذرة", "الزهرة", "النبات الكامل"],
-        answer: 3
-    },
-    {
-        question: "ما هو الجزء الذي ينمو تحت الأرض في النبات؟",
-        options: ["الساق", "الورقة", "الجذر", "الزهرة"],
-        answer: 2
-    }
-];
+document.addEventListener('DOMContentLoaded', () => {
+    const questions = [
+        {
+            question: "ما هو العضو المسؤول عن إنتاج الأنسولين في الجسم؟",
+            options: ["الكبد", "البنكرياس", "الطحال", "الكلى"],
+            answer: "البنكرياس"
+        },
+        {
+            question: "أي من الآتي يعتبر من البروتينات؟",
+            options: ["الجلوكوز", "الأدينين", "الأنسولين", "السليلوز"],
+            answer: "الأنسولين"
+        },
+        {
+            question: "ما هي الوحدة الأساسية للبناء في الكائنات الحية؟",
+            options: ["النواة", "الخلية", "الأنسجة", "الأعضاء"],
+            answer: "الخلية"
+        },
+        {
+            question: "ما هي المرحلة التي يتم فيها تبادل المادة الوراثية بين الكروموسومات أثناء الانقسام الميوزي؟",
+            options: ["الطور التمهيدي الأول", "الطور الاستوائي الأول", "الطور الانفصالي الأول", "الطور النهائي الأول"],
+            answer: "الطور التمهيدي الأول"
+        },
+        {
+            question: "أي من الآتي يُعتبر مثالاً على التكاثر اللاجنسي في النباتات؟",
+            options: ["التلقيح", "الإخصاب", "التكاثر بالترقيد", "التكاثر عن طريق البذور"],
+            answer: "التكاثر بالترقيد"
+        },
+        {
+            question: "ما هي العملية التي يتم من خلالها تحويل الضوء إلى طاقة كيميائية في النباتات؟",
+            options: ["التنفس الخلوي", "التمثيل الضوئي", "التخمر", "الانقسام المتساوي"],
+            answer: "التمثيل الضوئي"
+        },
+        {
+            question: "أي من العوامل التالية يُعتبر غير حيوي في البيئة؟",
+            options: ["النبات", "الحيوانات", "الصخور", "البكتيريا"],
+            answer: "الصخور"
+        },
+        {
+            question: "ما هو الحمض النووي الذي يحمل الشفرة الوراثية من النواة إلى الريبوسومات؟",
+            options: ["DNA", "rRNA", "mRNA", "tRNA"],
+            answer: "mRNA"
+        },
+        {
+            question: "ما هي المرحلة التي تتضاعف فيها الكروموسومات خلال دورة الخلية؟",
+            options: ["الطور البيني", "الطور التمهيدي", "الطور الاستوائي", "الطور الانفصالي"],
+            answer: "الطور البيني"
+        },
+        {
+            question: "أي من الآتي يُعتبر مثالاً على الانتحاء الضوئي في النباتات؟",
+            options: ["تحرك الجذور نحو الماء", "انحناء السيقان نحو الضوء", "استجابة النبات للمس", "نمو النبات في التربة الصخرية"],
+            answer: "انحناء السيقان نحو الضوء"
+        }
+    ];
 
-function loadQuestions() {
     const questionsContainer = document.getElementById('questions-container');
+
     questions.forEach((q, index) => {
         const questionDiv = document.createElement('div');
         questionDiv.classList.add('question');
-        
-        const questionText = document.createElement('p');
-        questionText.innerText = q.question;
-        questionDiv.appendChild(questionText);
-        
-        q.options.forEach((option, i) => {
-            const optionDiv = document.createElement('div');
-            optionDiv.classList.add('option');
-            
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.name = `question-${index}`;
-            input.value = i;
-            optionDiv.appendChild(input);
-            
-            const label = document.createElement('label');
-            label.innerText = option;
-            optionDiv.appendChild(label);
-            
-            questionDiv.appendChild(optionDiv);
+
+        const questionTitle = document.createElement('h2');
+        questionTitle.textContent = `السؤال ${index + 1}: ${q.question}`;
+        questionDiv.appendChild(questionTitle);
+
+        const optionsList = document.createElement('ul');
+        optionsList.classList.add('options');
+
+        q.options.forEach(option => {
+            const optionItem = document.createElement('li');
+            optionItem.classList.add('option');
+            optionItem.textContent = option;
+
+            optionItem.addEventListener('click', () => {
+                document.querySelectorAll(`.question:nth-child(${index + 1}) .option`).forEach(item => {
+                    item.style.backgroundColor = '#e0e0e0';
+                });
+                optionItem.style.backgroundColor = '#b3d9ff';
+                q.selected = option;
+            });
+
+            optionsList.appendChild(optionItem);
         });
-        
+
+        questionDiv.appendChild(optionsList);
         questionsContainer.appendChild(questionDiv);
     });
-}
 
-function checkAnswers() {
-    const finishButton = document.getElementById('finish-button');
-    if (finishButton.disabled) return;
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.addEventListener('click', () => {
+        const scoreDiv = document.getElementById('score');
 
-    finishButton.disabled = true;
+        let correctCount = 0;
 
-    questions.forEach((q, index) => {
-        const selectedOption = document.querySelector(`input[name="question-${index}"]:checked`);
-        const result = document.createElement('span');
-        
-        if (selectedOption && parseInt(selectedOption.value) === q.answer) {
-            result.innerText = " (صحيح)";
-            result.style.color = "green";
-        } else {
-            result.innerText = " (خطأ)";
-            result.style.color = "red";
-        }
-        
-        const questionDiv = document.querySelector(`.question:nth-child(${index + 1})`);
-        questionDiv.appendChild(result);
+        questions.forEach((q, index) => {
+            const questionDiv = document.querySelector(`.question:nth-child(${index + 1})`);
+            const resultDiv = document.createElement('div');
+
+            if (q.selected === q.answer) {
+                correctCount++;
+                resultDiv.classList.add('correct');
+                resultDiv.textContent = `إجابة صحيحة: ${q.selected}`;
+            } else {
+                resultDiv.classList.add('incorrect');
+                resultDiv.textContent = `إجابة خاطئة: ${q.selected || 'لم تُحدد إجابة'} (الإجابة الصحيحة: ${q.answer})`;
+            }
+
+            questionDiv.appendChild(resultDiv);
+        });
+
+        scoreDiv.textContent = `عدد الإجابات الصحيحة: ${correctCount} من ${questions.length}`;
+        document.getElementById('results-container').style.display = 'block';
+        window.scrollTo(0, document.body.scrollHeight);
+
+        // تعطيل زر إنهاء بعد الضغط عليه
+        submitBtn.disabled = true;
     });
-}
-
-window.onload = loadQuestions;
+});
